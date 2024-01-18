@@ -5,13 +5,13 @@ import profilepic from "../assets/profilepic.png";
 import dashboardpic from "../assets/dashboardpic.png";
 import classroompic from "../assets/classroompic.png";
 import analyticspic from "../assets/analyticspic.png";
-import addpic from "../assets/add.png";
+import addpic from "../assets/addpic.png";
 import logoutpic from "../assets/logout.png";
 
 import { useState } from "react";
 
 const SideBar = () => {
-  const [sidebar, setSidebar] = useState(true);
+  const [sidebar, setSidebar] = useState(false);
 
   function handleClick() {
     if (sidebar) {
@@ -22,55 +22,132 @@ const SideBar = () => {
   }
   return (
     <>
-      <div className="flex flex-col items-center w-[300px] h-full bg-[#12161D] border-r-[1px] border-slate-500 ">
-        <div className="flex items-center p-8 w-full mb-4">
-          <img src={logo} className="w-[60px] h-[50px] mr-4" alt="" />
-          <span className="text-xl text-white font-bold">APyro</span>
+      {sidebar ? (
+        <div className="flex flex-col items-center w-[300px] h-full bg-[#12161D] border-r-[1px] border-slate-500 ">
+          <div className="flex items-center p-8 w-full mb-4">
+            <img src={logo} className="w-[60px] h-[50px] mr-4" alt="" />
+            <span className="text-xl text-white font-bold">APyro</span>
 
-          <img
-            src={sidebar ? sideclose : sideopen}
-            onClick={handleClick}
-            className="ml-auto w-[32px] h-[32px]"
-            alt=""
-          />
-        </div>
-
-        <div className="flex p-4 w-[80%] bg-[#1A222B] rounded-lg mb-8">
-          <img className="mr-2 w-[50px] h-[50px]" src={profilepic} alt="" />
-          <div>
-            <span className="font-semibold text-white text-lg block">
-              Juan Carlos
-            </span>
-            <span className="text-slate-500 text-md">Educator</span>
+            <img
+              src={sidebar ? sideclose : sideopen}
+              onClick={handleClick}
+              className="ml-auto w-[32px] h-[32px]"
+              alt=""
+            />
           </div>
+
+          <div className="flex p-4 w-[80%] bg-[#1A222B] rounded-lg mb-8">
+            <img className="mr-2 w-[50px] h-[50px]" src={profilepic} alt="" />
+            <div>
+              <span className="font-semibold text-white text-lg block">
+                Juan Carlos
+              </span>
+              <span className="text-slate-500 text-md">Educator</span>
+            </div>
+          </div>
+
+          <ul className="list-none flex flex-col w-full h-full">
+            <li className="flex w-full items-center px-8 py-2 bg-[#1A222B]">
+              <img
+                className="mr-2 w-[20px] h-[20px]"
+                src={dashboardpic}
+                alt=""
+              />
+              <span className="text-slate-400 font-bold text-lg">
+                Dashboard
+              </span>
+            </li>
+
+            <li className="flex w-full items-center px-8 py-2">
+              <img
+                className="mr-2 w-[20px] h-[20px]"
+                src={classroompic}
+                alt=""
+              />
+              <span className="text-slate-400 font-bold text-lg">
+                Classroom
+              </span>
+            </li>
+
+            <li className="flex w-full items-center px-8  py-2">
+              <img
+                className="mr-2 w-[20px] h-[20px]"
+                src={analyticspic}
+                alt=""
+              />
+              <span className="text-slate-400 font-bold text-lg">
+                Analytics
+              </span>
+            </li>
+
+            <li className="flex w-full items-center px-8  py-2">
+              <img className="mr-2 w-[20px] h-[20px]" src={addpic} alt="" />
+              <span className="text-slate-400 font-bold text-lg">
+                Add Class
+              </span>
+            </li>
+            <li className="flex w-full items-center px-8 mb-8 mt-auto">
+              <img className="mr-2 w-[20px] h-[20px]" src={logoutpic} alt="" />
+              <span className="text-slate-400 font-bold text-lg">Logout</span>
+            </li>
+
+            <li className="flex w-full items-center px-8 mb-8 ">
+              <img
+                src={sidebar ? sideclose : sideopen}
+                onClick={handleClick}
+                className="ml-auto w-[32px] h-[32px]"
+                alt=""
+              />
+            </li>
+          </ul>
         </div>
+      ) : (
+        <div className="flex flex-col items-center w-[110px] h-full bg-[#12161D] border-r-[1px] border-slate-500 ">
+          <div className="flex items-center p-8  mb-4">
+            <img src={logo} className="w-full" alt="" />
+          </div>
 
-        <ul className="list-none flex flex-col w-full h-full">
-          <li className="flex w-full items-center px-8 py-2 bg-[#1A222B]">
-            <img className="mr-2 w-[20px] h-[20px]" src={dashboardpic} alt="" />
-            <span className="text-slate-400 font-bold text-lg">Dashboard</span>
-          </li>
+          <div className="flex flex-col items-center w-full  mb-4">
+            <img className=" w-[32px] h-[32px]" src={profilepic} alt="" />
+            <span className="text-slate-500">Profile</span>
+          </div>
 
-          <li className="flex w-full items-center px-8 py-2">
-            <img className="mr-2 w-[20px] h-[20px]" src={classroompic} alt="" />
-            <span className="text-slate-400 font-bold text-lg">Classroom</span>
-          </li>
+          <ul className="list-none flex items-center flex-col w-full h-full">
+            <li className="flex flex-col items-center  py-2">
+              <img className=" w-[32px] h-[32px]" src={dashboardpic} alt="" />
+              <span className="text-slate-500">Dashboard</span>
+            </li>
 
-          <li className="flex w-full items-center px-8  py-2">
-            <img className="mr-2 w-[20px] h-[20px]" src={analyticspic} alt="" />
-            <span className="text-slate-400 font-bold text-lg">Analytics</span>
-          </li>
+            <li className="flex flex-col items-center  py-2">
+              <img className=" w-[32px] h-[32px]" src={classroompic} alt="" />
+              <span className="text-slate-500">Classroom</span>
+            </li>
 
-          <li className="flex w-full items-center px-8  py-2">
-            <img className="mr-2 w-[20px] h-[20px]" src={addpic} alt="" />
-            <span className="text-slate-400 font-bold text-lg">Add Class</span>
-          </li>
-          <li className="flex w-full items-center px-8 mb-8 mt-auto">
-            <img className="mr-2 w-[20px] h-[20px]" src={logoutpic} alt="" />
-            <span className="text-slate-400 font-bold text-lg">Logout</span>
-          </li>
-        </ul>
-      </div>
+            <li className="flex flex-col items-center  py-2">
+              <img className="w-[32px] h-[32px]" src={analyticspic} alt="" />
+              <span className="text-slate-500">Analytics</span>
+            </li>
+
+            <li className="flex flex-col items-center  py-2">
+              <img className=" w-[32px] h-[32px]" src={addpic} alt="" />
+              <span className="text-slate-500">Join Class</span>
+            </li>
+            <li className="flex flex-col items-center mb-8 mt-auto">
+              <img className=" w-[32px] h-[32px]" src={logoutpic} alt="" />
+              <span className="text-slate-500">Logout</span>
+            </li>
+            <li className="flex flex-col items-center mb-8 ">
+              <img
+                src={sidebar ? sideclose : sideopen}
+                onClick={handleClick}
+                className=" w-[32px] h-[32px]"
+                alt=""
+              />
+              <span className="text-slate-500">Expand</span>
+            </li>
+          </ul>
+        </div>
+      )}
     </>
   );
 };
