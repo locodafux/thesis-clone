@@ -3,12 +3,15 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Hero from "./pages/Hero.jsx";
 import Login from "./pages/Login.jsx";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import SignUpSelection from "./pages/SignUpSelection.jsx";
 import EducatorSignUp from "./pages/educatorSignUp.jsx";
 import StudentSignUp from "./pages/StudentSignUp.jsx";
 import FaceRegistration from "./pages/FaceRegistration.jsx";
-import EducatorDashboard from "./pages/EducatorDashboard.jsx";
+import EducatorClassroom from "./pages/EducatorClassroom.jsx";
+import CreateClass from "./pages/CreateClass.jsx";
+import JoinClass from "./pages/JoinClass.jsx";
+import App from "./App.jsx";
 
 const router = createBrowserRouter([
   {
@@ -36,8 +39,28 @@ const router = createBrowserRouter([
     element: <FaceRegistration />,
   },
   {
-    path: "/educatordashboard",
-    element: <EducatorDashboard />,
+    path: "/educatorclassroom",
+    element: (
+      <App>
+        <EducatorClassroom />
+      </App>
+    ),
+  },
+  {
+    path: "/createclass",
+    element: (
+      <App>
+        <CreateClass />
+      </App>
+    ),
+  },
+  {
+    path: "/joinclass",
+    element: (
+      <App>
+        <JoinClass />
+      </App>
+    ),
   },
 ]);
 

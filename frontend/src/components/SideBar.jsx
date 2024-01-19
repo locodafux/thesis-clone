@@ -7,6 +7,8 @@ import classroompic from "../assets/classroompic.png";
 import analyticspic from "../assets/analyticspic.png";
 import addpic from "../assets/addpic.png";
 import logoutpic from "../assets/logout.png";
+import joinpic from "../assets/joinpic.png";
+import { Link } from "react-router-dom";
 
 import { useState } from "react";
 
@@ -47,27 +49,30 @@ const SideBar = () => {
           </div>
 
           <ul className="list-none flex flex-col w-full h-full">
-            <li className="flex w-full items-center px-8 py-2 bg-[#1A222B]">
-              <img
-                className="mr-2 w-[20px] h-[20px]"
-                src={dashboardpic}
-                alt=""
-              />
-              <span className="text-slate-400 font-bold text-lg">
-                Dashboard
-              </span>
-            </li>
-
-            <li className="flex w-full items-center px-8 py-2">
-              <img
-                className="mr-2 w-[20px] h-[20px]"
-                src={classroompic}
-                alt=""
-              />
-              <span className="text-slate-400 font-bold text-lg">
-                Classroom
-              </span>
-            </li>
+            <Link to="/educatordashboard">
+              <li className="flex w-full items-center px-8 py-2 bg-[#1A222B]">
+                <img
+                  className="mr-2 w-[20px] h-[20px]"
+                  src={dashboardpic}
+                  alt=""
+                />
+                <span className="text-slate-400 font-bold text-lg">
+                  Dashboard
+                </span>
+              </li>
+            </Link>
+            <Link to="/educatorclassroom">
+              <li className="flex w-full items-center px-8 py-2">
+                <img
+                  className="mr-2 w-[20px] h-[20px]"
+                  src={classroompic}
+                  alt=""
+                />
+                <span className="text-slate-400 font-bold text-lg">
+                  Classroom
+                </span>
+              </li>
+            </Link>
 
             <li className="flex w-full items-center px-8  py-2">
               <img
@@ -79,13 +84,24 @@ const SideBar = () => {
                 Analytics
               </span>
             </li>
+            <Link to="/createclass">
+              <li className="flex w-full items-center px-8  py-2">
+                <img className="mr-2 w-[20px] h-[20px]" src={addpic} alt="" />
+                <span className="text-slate-400 font-bold text-lg">
+                  Create Class
+                </span>
+              </li>
+            </Link>
 
-            <li className="flex w-full items-center px-8  py-2">
-              <img className="mr-2 w-[20px] h-[20px]" src={addpic} alt="" />
-              <span className="text-slate-400 font-bold text-lg">
-                Add Class
-              </span>
-            </li>
+            <Link to="/joinclass">
+              <li className="flex w-full items-center px-8  py-2">
+                <img className="mr-2 w-[20px] h-[20px]" src={joinpic} alt="" />
+                <span className="text-slate-400 font-bold text-lg">
+                  Join Class
+                </span>
+              </li>
+            </Link>
+
             <li className="flex w-full items-center px-8 mb-8 mt-auto">
               <img className="mr-2 w-[20px] h-[20px]" src={logoutpic} alt="" />
               <span className="text-slate-400 font-bold text-lg">Logout</span>
@@ -113,33 +129,48 @@ const SideBar = () => {
           </div>
 
           <ul className="list-none flex items-center flex-col w-full h-full">
-            <li className="flex flex-col items-center  py-2">
-              <img className=" w-[32px] h-[32px]" src={dashboardpic} alt="" />
-              <span className="text-slate-500">Dashboard</span>
-            </li>
+            <Link to="/educatordashboard">
+              <li className="flex flex-col items-center  py-2">
+                <img className=" w-[32px] h-[32px]" src={dashboardpic} alt="" />
+                <span className="text-slate-500">Dashboard</span>
+              </li>
+            </Link>
 
-            <li className="flex flex-col items-center  py-2">
-              <img className=" w-[32px] h-[32px]" src={classroompic} alt="" />
-              <span className="text-slate-500">Classroom</span>
-            </li>
+            <Link to="/educatorclassroom">
+              <li className="flex flex-col items-center  py-2">
+                <img className=" w-[32px] h-[32px]" src={classroompic} alt="" />
+                <span className="text-slate-500">Classroom</span>
+              </li>
+            </Link>
 
             <li className="flex flex-col items-center  py-2">
               <img className="w-[32px] h-[32px]" src={analyticspic} alt="" />
               <span className="text-slate-500">Analytics</span>
             </li>
 
-            <li className="flex flex-col items-center  py-2">
-              <img className=" w-[32px] h-[32px]" src={addpic} alt="" />
-              <span className="text-slate-500">Join Class</span>
-            </li>
+            <Link to="/createclass">
+              <li className="flex flex-col items-center  py-2">
+                <img className=" w-[32px] h-[32px]" src={addpic} alt="" />
+                <span className="text-slate-500">Create Class</span>
+              </li>
+            </Link>
+
+            <Link to="/joinclass">
+              <li className="flex flex-col items-center  py-2">
+                <img className=" w-[32px] h-[32px]" src={joinpic} alt="" />
+                <span className="text-slate-500">Join Class</span>
+              </li>
+            </Link>
             <li className="flex flex-col items-center mb-8 mt-auto">
               <img className=" w-[32px] h-[32px]" src={logoutpic} alt="" />
               <span className="text-slate-500">Logout</span>
             </li>
-            <li className="flex flex-col items-center mb-8 ">
+            <li
+              className="flex flex-col items-center mb-8 "
+              onClick={handleClick}
+            >
               <img
                 src={sidebar ? sideclose : sideopen}
-                onClick={handleClick}
                 className=" w-[32px] h-[32px]"
                 alt=""
               />
