@@ -25,9 +25,11 @@ const SideBar = () => {
   return (
     <>
       {sidebar ? (
-        <div className="flex flex-col items-center w-[300px] h-full bg-[#12161D] border-r-[1px] border-slate-500 ">
+        <div className="flex flex-col items-center w-[300px] h-[100%] bg-[#12161D] border-r-[1px] border-slate-500 ">
           <div className="flex items-center p-8 w-full mb-4">
-            <img src={logo} className="w-[60px] h-[50px] mr-4" alt="" />
+            <Link to="/educatorclassroom">
+              <img src={logo} className="w-[60px] h-[50px] mr-4" alt="" />
+            </Link>
             <span className="text-xl text-white font-bold">APyro</span>
 
             <img
@@ -119,11 +121,13 @@ const SideBar = () => {
         </div>
       ) : (
         <div className="flex flex-col items-center w-[110px] h-full bg-[#12161D] border-r-[1px] border-slate-500 ">
-          <div className="flex items-center p-8  mb-4">
-            <img src={logo} className="w-full" alt="" />
+          <div className="flex items-center justify-center   my-4">
+            <Link to="/educatorclassroom">
+              <img src={logo} className="w-[36px] h-[32px]" alt="" />
+            </Link>
           </div>
 
-          <div className="flex flex-col items-center w-full  mb-4">
+          <div className="flex flex-col items-center   mb-4">
             <img className=" w-[32px] h-[32px]" src={profilepic} alt="" />
             <span className="text-slate-500">Profile</span>
           </div>

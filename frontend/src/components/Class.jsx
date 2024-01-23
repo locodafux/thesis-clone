@@ -7,7 +7,11 @@ const Class = () => {
     <>
       <div className="sm:col-span-2 lg:col-span-1 xl:col-span-1 h-[300px] overflow-hidden  rounded-xl">
         <div className=" p-4 w-full bg-[#222B33]">
-          <span className="font-bold text-xl text-white block">Class name</span>
+          <Link to="/classmain">
+            <span className="font-bold text-xl text-white block">
+              Class name
+            </span>
+          </Link>
           <span className="font-semibold     text-lg text-slate-400 block">
             Section and schedule
           </span>

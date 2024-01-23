@@ -130,6 +130,36 @@ const ClassMain = () => {
                 <td className="border border-slate-600 p-2">8:00AM</td>
                 <td className="border border-slate-600 p-2">Online</td>
               </tr>
+              <tr>
+                <td className="border border-slate-600 p-2">
+                  Leonardo Timkang Jr.
+                </td>
+                <td className="border border-slate-600 p-2">k11614947</td>
+                <td className="border border-slate-600 p-2">8:00AM</td>
+                <td className="border border-slate-600 p-2">8:00AM</td>
+                <td className="border border-slate-600 p-2">8:00AM</td>
+                <td className="border border-slate-600 p-2">Online</td>
+              </tr>
+              <tr>
+                <td className="border border-slate-600 p-2">
+                  Leonardo Timkang Jr.
+                </td>
+                <td className="border border-slate-600 p-2">k11614947</td>
+                <td className="border border-slate-600 p-2">8:00AM</td>
+                <td className="border border-slate-600 p-2">8:00AM</td>
+                <td className="border border-slate-600 p-2">8:00AM</td>
+                <td className="border border-slate-600 p-2">Online</td>
+              </tr>
+              <tr>
+                <td className="border border-slate-600 p-2">
+                  Leonardo Timkang Jr.
+                </td>
+                <td className="border border-slate-600 p-2">k11614947</td>
+                <td className="border border-slate-600 p-2">8:00AM</td>
+                <td className="border border-slate-600 p-2">8:00AM</td>
+                <td className="border border-slate-600 p-2">8:00AM</td>
+                <td className="border border-slate-600 p-2">Online</td>
+              </tr>
             </tbody>
           </table>
         </div>

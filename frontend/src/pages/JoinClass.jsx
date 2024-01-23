@@ -5,7 +5,7 @@ const JoinClass = () => {
     <>
       <div className="w-full h-full flex justify-center items-center">
         <div className="min-w-[500px] bg-[#1A222B] rounded-xl p-8 flex sm:justify-center">
-          <div className="lg:w-3/4 xl:w=3/4 sm:w-3/4 text-center">
+          <div className="lg:w-3/4 xl:w=3/4 sm:w-3/4 ">
             <h1 className="text-white text-2xl font-bold mb-1">Join Class</h1>
             <p className="text-slate-500 font-semibold text-lg mb-4">
               Enter the code your teacher shared
