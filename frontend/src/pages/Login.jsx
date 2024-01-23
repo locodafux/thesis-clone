@@ -8,7 +8,7 @@ const Login = () => {
         <OnboardingNavbar />
         <div className="mt-3 flex  rounded-2xl overflow-hidden ">
           <div className="sm:hidden lg:block ">
-            <img className="w-[450px] h-[450px]" src={loginPhoto} alt="" />
+            <img className="w-[450px] h-[500px]" src={loginPhoto} alt="" />
           </div>
           <div className="w-[450px] py-5 bg-[#1A222B] flex flex-col justify-center sm:items-center ">
             <h1 className="text-3xl text-white font-bold">

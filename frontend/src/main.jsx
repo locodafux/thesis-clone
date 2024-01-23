@@ -12,6 +12,8 @@ import EducatorClassroom from "./pages/EducatorClassroom.jsx";
 import CreateClass from "./pages/CreateClass.jsx";
 import JoinClass from "./pages/JoinClass.jsx";
 import App from "./App.jsx";
+import EditClass from "./pages/EditClass.jsx";
+import ClassMain from "./pages/ClassMain.jsx";
 
 const router = createBrowserRouter([
   {
@@ -55,10 +57,26 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: "/editclass",
+    element: (
+      <App>
+        <EditClass />
+      </App>
+    ),
+  },
+  {
     path: "/joinclass",
     element: (
       <App>
         <JoinClass />
+      </App>
+    ),
+  },
+  {
+    path: "/classmain",
+    element: (
+      <App>
+        <ClassMain />
       </App>
     ),
   },

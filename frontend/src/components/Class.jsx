@@ -1,7 +1,7 @@
 import bin from "../assets/icons8-bin-32.png";
 import pencil from "../assets/icons8-pencil-32.png";
 import folderpic from "../assets/folder.png";
-
+import { Link } from "react-router-dom";
 const Class = () => {
   return (
     <>
@@ -19,7 +19,9 @@ const Class = () => {
               <img className="mr-2" src={folderpic} alt="" /> Show Details
             </button>
             <div className="flex mx-4">
-              <img className="w-[28px] h-[28px] mr-4" src={pencil} alt="" />
+              <Link to="/editclass">
+                <img className="w-[28px] h-[28px] mr-4" src={pencil} alt="" />
+              </Link>
               <img className="w-[28px] h-[28px]" src={bin} alt="" />
             </div>
           </div>
