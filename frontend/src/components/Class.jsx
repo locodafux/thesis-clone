@@ -19,9 +19,11 @@ const Class = () => {
         </div>
         <div className="relative h-[200px] bg-[#1A222B]">
           <div className="absolute bottom-0 h-[100px] border-t-2 border-[#222B33] w-full flex items-center justify-between">
-            <button className="text-md flex items-center border-2 p-2 rounded-lg text-slate-400 m-4 border-slate-400 active:bg-slate-400 active:text-black">
-              <img className="mr-2" src={folderpic} alt="" /> Show Details
-            </button>
+            <Link to="/classmain">
+              <button className="text-sm flex items-center border-2 p-2 rounded-lg text-slate-400 m-4 border-slate-400 active:bg-slate-400 active:text-black">
+                <img className="mr-2" src={folderpic} alt="" /> Show Details
+              </button>
+            </Link>
             <div className="flex mx-4">
               <Link to="/editclass">
                 <img className="w-[28px] h-[28px] mr-4" src={pencil} alt="" />

@@ -26,9 +26,9 @@ const SideBar = () => {
     <>
       {sidebar ? (
         <div className="flex flex-col items-center w-[300px] h-[100%] bg-[#12161D] border-r-[1px] border-slate-500 ">
-          <div className="flex items-center p-8 w-full mb-4">
+          <div className="flex items-center p-8 w-full mb-8">
             <Link to="/educatorclassroom">
-              <img src={logo} className="w-[60px] h-[50px] mr-4" alt="" />
+              <img src={logo} className="w-[70px] h-[60px] mr-4" alt="" />
             </Link>
             <span className="text-xl text-white font-bold">APyro</span>
 

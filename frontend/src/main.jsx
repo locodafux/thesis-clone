@@ -5,7 +5,7 @@ import Hero from "./pages/Hero.jsx";
 import Login from "./pages/Login.jsx";
 import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import SignUpSelection from "./pages/SignUpSelection.jsx";
-import EducatorSignUp from "./pages/educatorSignUp.jsx";
+import EducatorSignUp from "./pages/EducatorSignUp.jsx";
 import StudentSignUp from "./pages/StudentSignUp.jsx";
 import FaceRegistration from "./pages/FaceRegistration.jsx";
 import EducatorClassroom from "./pages/EducatorClassroom.jsx";
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
     element: <SignUpSelection />,
   },
   {
-    path: "/educatorsignup",
+    path: "/Educatorsignup",
     element: <EducatorSignUp />,
   },
   {
