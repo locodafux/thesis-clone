@@ -54,7 +54,7 @@ const Login = () => {
               <button className="text-blue-500">Forgot Password?</button>
             </div>
 
-            <Link to="/educatordashboard" className="w-[75%]">
+            <Link to="/classmain" className="w-[75%]">
               <button className="bg-blue-500 active:bg-blue-600 w-full  text-xl text-white py-2 font-bold  rounded-lg mb-3">
                 Log In
               </button>
