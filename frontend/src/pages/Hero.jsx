@@ -9,8 +9,8 @@ const Hero = () => {
       <div className="w-screen h-screen bg-[#12161D] p-20">
         <Navbar />
         <div className="w-[100%] flex justify-center py-20">
-          <div className="w-[80%] h-[100px] flex">
-            <div className=" flex flex-col items-center md:w-3/2  sm:w-[100%] text-center h-[500px] ">
+          <div className="w-[70%] flex">
+            <div className=" flex flex-col items-center md:w-3/2  sm:w-[100%] text-center blg ">
               <h1 className="pt-10  text-white text-5xl font-bold block">
                 Welcome to
                 <span className="block text-[#39A7FF] text-5xl font-bold">
@@ -40,8 +40,8 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="w-1/2 sm-hidden md:hidden lg:hidden xl:block">
-              <img className="h-[400px] w-[400px]" src={heroPhoto} alt="" />
+            <div className="w-1/2 sm-hidden md:hidden lg:hidden xl:block w-full">
+              <img src={heroPhoto} alt="image" />
             </div>
           </div>
         </div>

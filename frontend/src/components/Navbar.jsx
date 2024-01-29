@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className=" flex items-center w-[100%] sticky">
+    <div className=" flex items-center w-[100%] ">
       <Link to="/">
-        <img src={logo} alt="" />
+        <img src={logo} className="w-[60px] h-[50px]" alt="" />
       </Link>
       <ul className="flex   w-[100%] justify-around">
-        <li className="text-2xl text-[#FFFFFF]">Policies</li>
-        <li className="text-2xl text-[#FFFFFF]">Contact Us</li>
-        <li className="text-2xl text-[#FFFFFF]">Documentation</li>
-        <li className="text-2xl text-[#FFFFFF]">About us</li>
+        <li className="text-xl text-[#FFFFFF]">Policies</li>
+        <li className="text-xl text-[#FFFFFF]">Contact Us</li>
+        <li className="text-xl text-[#FFFFFF]">Documentation</li>
+        <li className="text-xl text-[#FFFFFF]">About us</li>
       </ul>
     </div>
   );

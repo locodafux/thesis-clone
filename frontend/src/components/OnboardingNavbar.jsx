@@ -6,7 +6,7 @@ const OnboardingNavbar = () => {
     <div className="w-screen p-8">
       <div className="flex items-center">
         <Link to="/">
-          <img src={logo} alt="logo" />
+          <img src={logo} alt="logo" className="w-[60px] h-[50px]" />
         </Link>
 
         <div className="pl-3">

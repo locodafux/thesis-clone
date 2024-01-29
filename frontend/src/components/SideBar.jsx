@@ -31,13 +31,6 @@ const SideBar = () => {
               <img src={logo} className="w-[70px] h-[60px] mr-4" alt="" />
             </Link>
             <span className="text-xl text-white font-bold">APyro</span>
-
-            <img
-              src={sidebar ? sideclose : sideopen}
-              onClick={handleClick}
-              className="ml-auto w-[32px] h-[32px]"
-              alt=""
-            />
           </div>
 
           <div className="flex p-4 w-[80%] bg-[#1A222B] rounded-lg mb-8">
