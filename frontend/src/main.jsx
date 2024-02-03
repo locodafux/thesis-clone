@@ -4,6 +4,8 @@ import "./index.css";
 import Hero from "./pages/Hero.jsx";
 import Login from "./pages/Login.jsx";
 import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
+import store from "./store";
+import { Provider } from "react-redux";
 import SignUpSelection from "./pages/SignUpSelection.jsx";
 import EducatorSignUp from "./pages/EducatorSignUp.jsx";
 import StudentSignUp from "./pages/StudentSignUp.jsx";
@@ -83,7 +85,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <Provider store={store}>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  </Provider>
 );

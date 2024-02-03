@@ -8,12 +8,28 @@ import analyticspic from "../assets/analyticspic.png";
 import addpic from "../assets/addpic.png";
 import logoutpic from "../assets/logout.png";
 import joinpic from "../assets/joinpic.png";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { useLogoutMutation } from "../slices/usersApiSlice";
+import { logout } from "../slices/authSlice";
 import { useState } from "react";
 
 const SideBar = () => {
   const [sidebar, setSidebar] = useState(false);
+  const { userInfo } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [logoutApiCall] = useLogoutMutation();
+
+  const logoutHandler = async () => {
+    try {
+      await logoutApiCall().unwrap();
+      dispatch(logout());
+      navigate("/login");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   function handleClick() {
     if (sidebar) {
@@ -98,8 +114,14 @@ const SideBar = () => {
             </Link>
 
             <li className="flex w-full items-center px-8 mb-8 mt-auto">
-              <img className="mr-2 w-[20px] h-[20px]" src={logoutpic} alt="" />
-              <span className="text-slate-400 font-bold text-lg">Logout</span>
+              <button onClick={logoutHandler}>
+                <img
+                  className="mr-2 w-[20px] h-[20px]"
+                  src={logoutpic}
+                  alt=""
+                />
+                <span className="text-slate-400 font-bold text-lg">Logout</span>
+              </button>
             </li>
 
             <li className="flex w-full items-center px-8 mb-8 ">
@@ -158,7 +180,10 @@ const SideBar = () => {
                 <span className="text-slate-500">Join Class</span>
               </li>
             </Link>
-            <li className="flex flex-col items-center mb-8 mt-auto">
+            <li
+              className="flex flex-col items-center mb-8 mt-auto"
+              onClick={logoutHandler}
+            >
               <img className=" w-[32px] h-[32px]" src={logoutpic} alt="" />
               <span className="text-slate-500">Logout</span>
             </li>

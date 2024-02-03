@@ -1,13 +1,39 @@
 import OnboardingNavbar from "../components/OnboardingNavbar";
-import { Link } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useLoginMutation } from "../slices/usersApiSlice";
+import { setCredentials } from "../slices/authSlice";
 import loginPhoto from "../assets/login.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [login, { isLoading }] = useLoginMutation();
+
+  const { userInfo } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/educatorclassroom");
+    }
+  });
+
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log("Submit");
+    try {
+      const res = await login({ email, password }).unwrap();
+      dispatch(setCredentials({ ...res }));
+      navigate("/educatorclassroom");
+    } catch (err) {
+      console.error(err?.data?.message || err.error);
+    }
   };
 
   return (
@@ -29,17 +55,17 @@ const Login = () => {
               <div className="relative  mb-4">
                 <label
                   className="absolute top-1 left-2 text-slate-500 text-sm"
-                  htmlFor="username"
+                  htmlFor="email"
                 >
-                  Username
+                  Email
                 </label>
                 <input
-                  id="username"
+                  id="email"
                   className="bg-[#212529] border-2 border-slate-500 w-[100%] h-[50px] px-2 pt-3 text-white   rounded-md"
                   type="text"
-                  value={username}
+                  value={email}
                   onChange={(e) => {
-                    setUsername(e.target.value);
+                    setEmail(e.target.value);
                   }}
                 />
               </div>
