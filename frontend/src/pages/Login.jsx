@@ -8,6 +8,7 @@ import { useLoginMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import loginPhoto from "../assets/login.png";
 import { useEffect, useState } from "react";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,7 +24,7 @@ const Login = () => {
     if (userInfo) {
       navigate("/educatorclassroom");
     }
-  });
+  }, [navigate, userInfo]);
 
   const submitHandler = async (e) => {
     e.preventDefault();

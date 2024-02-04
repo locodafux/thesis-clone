@@ -1,6 +1,10 @@
 import OnboardingNavbar from "../components/OnboardingNavbar";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useRegisterMutation } from "../slices/usersApiSlice";
+import { setCredentials } from "../slices/authSlice";
+
 const EducatorSignUp = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -8,13 +12,41 @@ const EducatorSignUp = () => {
   const [contactNumber, setContactNumber] = useState("");
   const [university, setUniversity] = useState("");
   const [idNumber, setIdNumber] = useState("");
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const submitHandler = (e) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { userInfo } = useSelector((state) => state.auth);
+  const [register, { isLoading }] = useRegisterMutation();
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/educatorclassroom");
+    }
+  }, [navigate, userInfo]);
+
+  const submitHandler = async (e) => {
     e.preventDefault();
-    console.log("Register");
+    if (password !== confirmPassword) {
+      console.error("Passwords do not match");
+    } else {
+      try {
+        const res = await register({
+          firstName,
+          lastName,
+          email,
+          contactNumber,
+          university,
+          idNumber,
+          password,
+        }).unwrap();
+        dispatch(setCredentials({ ...res }));
+        navigate("/educatorclassroom");
+      } catch (err) {
+        console.error(err?.data?.message || err.error);
+      }
+    }
   };
   return (
     <>
@@ -121,22 +153,6 @@ const EducatorSignUp = () => {
                 type="text"
                 value={idNumber}
                 onChange={(e) => setIdNumber(e.target.value)}
-              />
-            </div>
-
-            <div className="relative w-[100%] mb-4">
-              <label
-                className="absolute top-1 left-2 text-slate-500 text-sm"
-                htmlFor="username"
-              >
-                Username
-              </label>
-              <input
-                id="username"
-                className="bg-[#212529] border-2 border-slate-500 w-[100%] h-[50px] px-2 pt-3 text-white rounded-md "
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
               />
             </div>
 

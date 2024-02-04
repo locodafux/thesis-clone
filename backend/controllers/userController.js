@@ -27,7 +27,15 @@ const authUser = asyncHandler(async (req, res) => {
 //route POST /api/users/
 //@access Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body;
+  const {
+    firstName,
+    lastName,
+    email,
+    contactNumber,
+    university,
+    idNumber,
+    password,
+  } = req.body;
 
   const userExists = await User.findOne({ email: email });
 
@@ -37,8 +45,12 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 
   const user = await User.create({
-    name,
+    firstName,
+    lastName,
     email,
+    contactNumber,
+    university,
+    idNumber,
     password,
   });
 
@@ -46,8 +58,12 @@ const registerUser = asyncHandler(async (req, res) => {
     generateToken(res, user._id);
     res.status(201).json({
       _id: user._id,
-      name: user.name,
+      firstName: user.firstName,
+      lastName: user.lastName,
       email: user.email,
+      contactNumber: user.contactNumber,
+      university: user.university,
+      idNumber: user.idNumber,
     });
   } else {
     res.status(400);
@@ -71,9 +87,12 @@ const logoutUser = asyncHandler(async (req, res) => {
 //@access Private
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = {
-    _id: req.user._id,
-    name: req.user.name,
-    email: req.user.email,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    email: user.email,
+    contactNumber: user.contactNumber,
+    university: user.university,
+    idNumber: user.idNumber,
   };
   res.status(200).json(user);
 });
